@@ -1,0 +1,1 @@
+INSERT INTO app.tasks (title, content, complete) VALUES ('Task test', '...', false);
