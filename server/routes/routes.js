@@ -1,4 +1,5 @@
 const express = require("express");
+const { updateTask } = require("../data/tasksData");
 const tasksService = require("../services/tasksService");
 const router = express.Router();
 
@@ -18,6 +19,7 @@ router.get("/tasks", async function (req, res) {
 // Retorna uma única tarefa através da ID
 router.get("/tasks/:id", async function (req, res) {
   const getTask = await tasksService.getTask(req.params.id);
+
   return res.status(200).json(getTask);
 });
 
@@ -34,12 +36,7 @@ router.post("/tasks", async function (req, res) {
 // Atualiza uma tarefa através da ID
 router.put("/tasks/:id", async function (req, res) {
   const task = req.body;
-  await tasksService.updateTask(req.params.id, task);
-
-  if (!task)
-    return res.status(401).json({
-      error: "Tarefa não encontrada!",
-    });
+  const updtTask = await tasksService.updateTask(req.params.id, task);
 
   return res.status(200).json(task);
 });
@@ -47,12 +44,7 @@ router.put("/tasks/:id", async function (req, res) {
 // Deleta uma tarefa através da ID
 router.delete("/tasks/:id", async function (req, res) {
   const task = req.params.id;
-  await tasksService.deleteTask(task);
-
-  if (!task)
-    return res.status(401).json({
-      error: "Tarefa não encontrada!",
-    });
+  const dltTask = await tasksService.deleteTask(task);
 
   return res.status(200).json({
     message: "Tarefa foi deletada com sucesso!",
