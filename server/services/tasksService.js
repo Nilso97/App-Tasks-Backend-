@@ -1,12 +1,5 @@
 const tasksData = require("../data/tasksData");
 
-/**
- *
- * Serviços da Aplicação, onde são executados os métodos
- * @author: Nilso Junior
- *
- */
-
 exports.getTasks = function () {
   return tasksData.getTasks();
 };

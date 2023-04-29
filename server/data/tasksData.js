@@ -1,12 +1,5 @@
 const database = require("../infra/database");
 
-/**
- *
- * Métodos de execução das querys SQL
- * @author: Nilso Junior
- *
- */
-
 exports.getTasks = function () {
   return database.query("SELECT * FROM app.tasks;");
 };

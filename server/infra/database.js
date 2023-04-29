@@ -1,12 +1,5 @@
 const pgp = require("pg-promise")();
 
-/**
- *
- * Conexão com o Banco de Dados PostgreSQL
- * @author: Nilso Junior
- *
- */
-
 const db = pgp({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,

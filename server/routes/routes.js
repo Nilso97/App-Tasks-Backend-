@@ -1,10 +1,3 @@
-/**
- *
- * Rotas da Aplicação
- * @author: Nilso Junior
- *
- */
-
 const express = require("express");
 const { updateTask } = require("../data/tasksData");
 const tasksService = require("../services/tasksService");

@@ -1,13 +1,6 @@
 const express = require("express");
 require("dotenv").config();
 
-/**
- *
- * Servidor principal
- * @author: Nilso Junior
- *
- */
-
 const PORT = process.env.PORT;
 
 const app = express();
