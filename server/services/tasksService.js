@@ -1,21 +1,21 @@
 const tasksData = require("../data/tasksData");
 
-exports.getTasks = function () {
+exports.getTasks = () => {
   return tasksData.getTasks();
 };
 
-exports.getTask = function (id) {
+exports.getTask = (id) => {
   return tasksData.getTask(id);
 };
 
-exports.createTask = function (task) {
+exports.createTask = (task) => {
   return tasksData.createTask(task);
 };
 
-exports.updateTask = function (id, task) {
+exports.updateTask = (id, task) => {
   return tasksData.updateTask(id, task);
 };
 
-exports.deleteTask = function (id) {
+exports.deleteTask = (id) => {
   return tasksData.deleteTask(id);
 };
