@@ -4,13 +4,13 @@ const tasksService = require("../services/tasksService");
 const router = express.Router();
 
 // Retorna todas as tarefas
-router.get("/tarefas", async function (req, res) {
+router.get("/tarefas", async (req, res) => {
   const tasks = await tasksService.getTasks();
   return res.status(200).json(tasks);
 });
 
 // Retorna uma única tarefa através da ID
-router.get("/tarefas/buscar/:id", async function (req, res) {
+router.get("/tarefas/:id", async (req, res) => {
   const task = await tasksService.getTask(req.params.id);
   if (!task)
     return res.status(401).json({
@@ -20,7 +20,7 @@ router.get("/tarefas/buscar/:id", async function (req, res) {
 });
 
 // Adiciona uma nova tarefa
-router.post("/tarefas/adicionar", async function (req, res) {
+router.post("/tarefas/", async (req, res) => {
   const { title, content, complete } = req.body;
   const task = { title, content, complete };
   const newTask = await tasksService.createTask(task);
@@ -30,7 +30,7 @@ router.post("/tarefas/adicionar", async function (req, res) {
 });
 
 // Atualiza uma tarefa através da ID
-router.put("/tarefas/atualizar/:id", async function (req, res) {
+router.put("/tarefas/:id", async (req, res) => {
   const task = req.body;
   const updtTask = await tasksService.updateTask(req.params.id, task);
 
@@ -38,7 +38,7 @@ router.put("/tarefas/atualizar/:id", async function (req, res) {
 });
 
 // Deleta uma tarefa através da ID
-router.delete("/tarefas/deletar/:id", async function (req, res) {
+router.delete("/tarefas/:id", async (req, res) => {
   const task = req.params.id;
   const dltTask = await tasksService.deleteTask(task);
 
